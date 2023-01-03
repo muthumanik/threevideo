@@ -3,74 +3,58 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
-  font-family: Arial;
-  color: white;
+* {
+  box-sizing: border-box;
 }
 
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
 }
 
-.lefttop {
-  left: 0;
-  background-color: #111;
-}
-.leftbottom {
-  left: 500;
-  background-color: #111;
-}
-.right {
-  right: 0;
-  background-color: red;
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.centered {
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.centered img {
-  width: 150px;
-  border-radius: 50%;
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
 </style>
 </head>
 <body>
 
-<div class="split lefttop">
-  <div class="centered">
-    <video id="first" width="120" height="120" autoplay>
+<h2>Responsive Three Column Layout</h2>
+<p>Resize the browser window to see the responsive effect (the columns will stack on top of each other instead of floating next to each other, when the screen is less than 600px wide).</p>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>Column 1</h2>
+    <video id="first" width="320" height="150" controls autoplay>
+	 <source src="videoplayback.mp4" type="video/mp4">
+    </video>  
+   </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>Column 2</h2>
+    <video id="second" width="320" height="150" controls autoplay>
 	 <source src="baby.mp4" type="video/mp4">
-    </video>
-    <h2>Screen 1 Top</h2>
-  </div>
-</div>
-<div class="split leftbottom">
-  <div class="centered">
-    <video id="second" width="120" height="120" autoplay>
+    </video>   
+	</div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>Column 3</h2>
+	 <video id="three" width="320" height="150" controls autoplay>
 	 <source src="play.mp4" type="video/mp4">
     </video>
-    <h2>Screen 1 Bottom</h2>
   </div>
 </div>
-<div class="split right">
-  <div class="centered">
-    <video id="third" width="320" height="320" autoplay>
-	 <source src="play.mp4" type="video/mp4">
-	</video>
-    <h2>Screen 2</h2>
-  </div>
-</div>
-     
+
 </body>
-</html> 
+</html>
